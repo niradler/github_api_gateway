@@ -1,0 +1,23 @@
+module.exports = {
+    github:{
+        base_url:"https://api.github.com",
+        actions:{
+            search:{
+                users:{
+                    path:'/search/users',
+                    method:"GET"
+                },
+                repositories:{
+                    path:'/search/repositories',
+                    method:"GET"
+                },
+            },
+            events:{
+                public:{
+                    path:'/events',
+                    method:"GET"
+                }
+            }
+        }
+    }
+}
