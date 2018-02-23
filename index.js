@@ -3,7 +3,6 @@ const app = express()
 const cors = require('cors')
 const search = require('./controllers/github/search')
 const events = require('./controllers/github/events')
-let etag = null;
 
 app.use(cors())
 
@@ -26,8 +25,8 @@ app.get('/github/search', async(req, res) => {
 //get events from github public api
 app.get('/github/events', async(req, res) => {
     try {
+        const etag = req.query.etag || "";
         const events_res = await events.public(etag)
-        etag = events_res.headers.etag // use the HTTP caching review
         return res.json(events_res.data);
     } catch (error) {
         console.log(error)
