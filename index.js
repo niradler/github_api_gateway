@@ -30,7 +30,7 @@ app.get('/github/events', async(req, res) => {
         res.set({
             'etag': events_res.headers.etag,
           })
-        return res.json({etag:events_res.headers.etag,events:events_res.data});
+        return res.json({old_etag:etag,etag:events_res.headers.etag,events:events_res.data});
     } catch (error) {
         console.log(error)
         return res
