@@ -36,7 +36,7 @@ app.get('/github/events', async(req, res) => {
         console.log(error)
         try { // send mock
             const events_res = await restore_from_local('none')
-            return res.status(403).json({old_etag:req.query.etag,etag:req.query.etag,events:events_res.data});
+            return res.status(202).json({old_etag:req.query.etag,etag:req.query.etag,events:events_res});
         } catch (error) {
             console.log(error) 
         }
