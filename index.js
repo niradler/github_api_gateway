@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express()
+const cors = require('cors')
 const search = require('./controllers/github/search')
 const events = require('./controllers/github/events')
 let etag = null;
+
+app.use(cors())
 
 //serach github by user and by repositories
 app.get('/github/search', async(req, res) => {
